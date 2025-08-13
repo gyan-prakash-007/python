@@ -1,11 +1,23 @@
-C:\Users\DELL\PycharmProjects\JupyterProject\.venv\Scripts\python.exe "C:\Users\DELL\PycharmProjects\JupyterProject\mini projects\shopping cart.py" 
-Enter a food to buy (q to quit) : rice 
- Enter the price of a rice : $2
-Enter a food to buy (q to quit) : wheat 
- Enter the price of a wheat : $5 
-Enter a food to buy (q to quit) : q
-_____YOUR CART_____
-rice  wheat  
-Your total is: $7.0
+foods = []
+prices = []
+total = 0
 
-Process finished with exit code 0
+while True:
+    food = input("Enter a food to buy (q to quit) : ")
+    if food.lower() == "q":
+        break
+    else:
+        price = float(input(f" Enter the price of a {food}: $"))
+        foods.append(food)
+        prices.append(price)
+
+
+print("_____YOUR CART_____")
+
+for food in foods :
+    print(food , end=" ")
+
+for price in prices :
+    total =  total + price
+print( )
+print(f"Your total is: ${total}")
