@@ -1,25 +1,64 @@
-🏦 Simple Python Banking Program
+# python banking program
 
-This is a beginner-friendly command line banking system built in Python. The program allows users to:
+def show_balance(balance):
+    print(f"Your balance is: ${balance: .2f}")
 
-✨ Features
 
-Check Balance – Displays your current account balance.
+def deposit():
+     amount = float(input("Enter amount to deposit: "))
 
-Deposit Money – Add funds to your balance (with input validation).
+     if amount < 0:
+         print("That's not a valid input")
+         return 0
+     else:
+         return amount
 
-Withdraw Money – Withdraw funds while checking for sufficient balance.
 
-Exit Program – Quit the application safely.
+def withdraw(balance):
+     amount = float(input("enter amount to withdraw: "))
+     if amount > balance:
+         print("Insufficient balance")
+         return 00
+     elif amount < 0:
+         print("Amount must be greater than 0")
+         return 0
+     else:
+         return amount
 
-⚙️ How it Works
+def main():
+    balance = 0
+    is_running = True
 
-The program starts with a balance of $0.00.
+    while is_running:
+        print("************************")
+        print("     Banking program")
+        print("************************")
+        print("1.Show balance")
+        print("2.Deposit")
+        print("3.Withdraw")
+        print("4.Exit")
+        print("************************")
 
-Users are presented with a menu of options (Show balance, Deposit, Withdraw, Exit).
+        choice = input("Enter your choice:(1-4) ")
 
-Input validation is included:
 
-Prevents negative deposits or withdrawals.
+        if choice == "1":
+            show_balance(balance)
 
-Prevents withdrawing more than the available balance.
+        elif choice == "2":
+            balance +=deposit()
+
+        elif choice == "3":
+            balance -= withdraw(balance)
+
+        elif choice == "4":
+            is_running = False
+
+        else:
+            print("Invalid choice")
+
+
+    print("Thank you ! Have a nice day ")
+
+if __name__ == "__main__":
+    main()
